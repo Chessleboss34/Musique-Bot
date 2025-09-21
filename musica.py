@@ -4,6 +4,7 @@ from discord.ext import commands, tasks
 import youtube_dl
 from dotenv import load_dotenv
 import os
+from keep_alive import keep_alive
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -87,4 +88,5 @@ async def on_ready():
     await bot.tree.sync(guild=GUILD)
     print(f"Connecté comme {bot.user} ✅")
 
+keep_alive()
 bot.run(TOKEN)
